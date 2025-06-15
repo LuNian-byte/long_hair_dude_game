@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>又氣又好笑的長髮男宇宙</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="cover-screen" style="display:flex;">
+        <div class="cover-img-btn-wrap">
+            <img src="{{ url_for('static', filename='images/cover.jpg') }}" alt="遊戲封面" id="cover-image">
+            <img src="{{ url_for('static', filename='images/start_button_graphic.png') }}" alt="開始遊戲" id="start-button-img">
+        </div>
+        <div id="music-tip" style="text-align:center;color:#E6007A;font-size:1.1em;margin-top:18px;letter-spacing:1px;">點擊封面任意處開啟音樂</div>
+    </div>
+    <div id="game-wrapper" style="display:none; position:relative;">
+        <div id="loading-overlay" style="display:none;">
+            <div class="loading-bg">
+                <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                    <img src="{{ url_for('static', filename='images/loading.gif') }}" alt="載入中" class="loading-gif">
+                    <div class="loading-text">遊戲加載中...</div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Pink Section -->
+        <div class="top-bar">
+            <img class="avatar" id="character-avatar" src="/static/images/avatar_wangzheyu.png" alt="角色頭貼" />
+            <div class="char-info">
+                <div class="char-name" id="character-name">長髮男</div>
+                <div class="char-bg" id="character-background-summary">（身份背景介紹）</div>
+            </div>
+        </div>
+        <!-- Middle Cream Section -->
+        <div class="dialogue-section">
+            <div class="dialogue-box" id="dialogue-area">生成出的對話</div>
+            <div class="tip-box">按回覆按鈕，生成的回覆出現這</div>
+        </div>
+        <!-- Bottom Pink Section -->
+        <div class="options-section">
+            <div class="option-row"><button class="option-btn" data-index="0">選項1</button></div>
+            <div class="option-row"><button class="option-btn" data-index="1">選項2</button></div>
+            <div class="option-row"><button class="option-btn" data-index="2">選項3</button></div>
+            <img src="{{ url_for('static', filename='images/reply_btn.png') }}" alt="回覆" id="reply-button-img" class="reply-btn-img">
+        </div>
+        <img id="combo-intro-gif" src="{{ url_for('static', filename='images/combo_intro.gif') }}" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;z-index:9998;background:none;object-fit:contain;pointer-events:none;" alt="combo intro gif" />
+    </div>
+    <div id="combo-overlay" style="display:none;">
+        <div class="combo-center">
+            <img class="combo-avatar" id="combo-avatar-img" src="" alt="痛扁頭貼" />
+            <div class="combo-tip">連點痛扁他！</div>
+        </div>
+    </div>
+    <audio id="opening-music" src="{{ url_for('static', filename='audio/opening_music.mp3') }}" loop></audio>
+    <audio id="start-button-audio" src="{{ url_for('static', filename='audio/start_button.mp3') }}"></audio>
+    <audio id="game-music" src="{{ url_for('static', filename='audio/game_music.mp3') }}" loop></audio>
+    <audio id="combo-sound" src="{{ url_for('static', filename='audio/combo_sound.mp3') }}"></audio>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
